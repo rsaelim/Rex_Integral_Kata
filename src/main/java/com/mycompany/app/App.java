@@ -10,7 +10,7 @@ package com.mycompany.app;
  */
 public class App 
 {
-    public static void main( String[] actions, String[] data ) {
+    public static String main( String[] actions, String[] data ) {
 		for (int i = 0; i < actions.length; ++i) {
 			System.out.println( actions[i] );
 		}
@@ -18,6 +18,7 @@ public class App
 			System.out.println( data[i] );
 		}
     	
-        System.out.println( "Hello World!" );
+        System.out.println( "In the App's main() about to return" );
+        return "Hello everybody\nRex - Hello everybody\n";
     }
 }

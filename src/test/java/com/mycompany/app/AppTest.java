@@ -35,18 +35,41 @@ public class AppTest
      *                            ["", "message to publish", "Rex", "Charlie", "", ]
      * First array:
      *         1. First item should be who you are as the user
+     *         2. The rest of the inputs:
      *         "publish" : "message to publish"
      *         "viewTimeline" : "Account's timeline you want to view"
      *         "follow" : "Account you are trying to follow"
      *         "viewWall" : ""
      *
      */
-    public void testApp()
+    public void testbasic()
     {
+        // tests publish and viewTimeline basic functionality
         new App();
         String[] action = { "Rex", "publish", "viewTimeline", "follow", "viewWall"};
         String[] data = {"", "Hello everybody", "Rex", "Charlie", ""};
-        App.main(action, data);
-        assertTrue( true );
+        String actualOutput = App.main(action, data);
+        String expectedOutput = "Hello everybody\nRex - Hello everybody\n";
+        assertTrue( true ); // TODO: replace with assertTrue( actualOutput == expectedOutput)
+    }
+
+    public void testSwitchAccountFunction()
+    {
+        // tests switching accounts and viewing timelines of different accounts
+        String[] action = { "Rex", "publish", "switch", "publish", "viewTimeline", "viewTimeline"};
+        String[] data = {"", "Hello everybody", "Charlie", "Ay, it's Charlie", "Rex", "Charlie"};
+        String actualOutput = App.main(action, data);
+        String expectedOutput = ""; //TODO: replace with expectedOutput
+        assertTrue( true ); // TODO: replace with assertTrue( actualOutput == expectedOutput)
+    }
+
+    public void testFollowing()
+    {
+        // tests follow and viewWall
+        String[] action = { "Alice", "publish", "follow", "switch", "publish", "switch", "viewWall"};
+        String[] data = { "", "Alice in wonderland" , "Charlie", "Charlie", "Charlie's timeline", "Alice", ""};
+        String actualOutput = App.main(action, data);
+        String expectedOutput = ""; //TODO: replace with expectedOutput
+        assertTrue( true ); // TODO: replace with assertTrue( actualOutput == expectedOutput)
     }
 }
